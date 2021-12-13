@@ -1,13 +1,10 @@
 package metrics
 
-package metrics
-
 import (
 	"fmt"
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-
 )
 
 const (
@@ -29,7 +26,7 @@ func CreateExecutionTimeMetric(namespace string, help string) *prometheus.Histog
 			Namespace: namespace,
 			Name:      "execution_latency_seconds",
 			Help:      help,
-			Buckets: prometheus.ExponentialBuckets(0.001, 2, 15),
+			Buckets:   prometheus.ExponentialBuckets(0.001, 2, 15),
 		}, []string{"step"},
 	)
 }
