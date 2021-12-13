@@ -1,0 +1,22 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpserver-ingress
+  namespace: httpserver
+  annotations:
+    kubernetes.io/ingress.class: "sh"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  tls:
+  - hosts:
+    - ingress.httpserver.org
+    secretName: httpservser
+  rules:
+  - host: ingress.httpserver.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: httpserver
+          servicePort: 80

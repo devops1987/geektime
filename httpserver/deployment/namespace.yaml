@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app/name: httpserver
+    app/part-of: httpserver
+  name: httpserver
